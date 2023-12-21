@@ -17,6 +17,7 @@
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
@@ -40,6 +41,9 @@
     "@floating-ui/dom": "1.5.3",
     "@tanstack/svelte-query": "^5.14.2",
     "@tanstack/svelte-query-devtools": "^5.14.2",
-    "axios": "^1.6.2"
+    "axios": "^1.6.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3"
   }
 }
