@@ -3,10 +3,11 @@ import bcrypt from 'bcryptjs';
 import type { RequestEvent } from './$types';
 import { json } from '@sveltejs/kit';
 import User from '$lib/model/users';
+import { JWT_SECRET } from '$env/static/private';
+import jwt from 'jsonwebtoken';
 
 connect();
-export async function POST(event: RequestEvent) {
-	const { request } = event;
+export async function POST({ request, cookies }: RequestEvent) {
 	const body: any = await request.json();
 	const { username, email, password } = body;
 
@@ -40,6 +41,15 @@ export async function POST(event: RequestEvent) {
 			{ status: 500 }
 		);
 	}
+	const secretToken = jwt.sign(
+		{ id: user._id, username: user.username, admin: user.admin },
+		JWT_SECRET,
+		{
+			expiresIn: '30d'
+		}
+	);
+
+	cookies.set('token', secretToken, { path: '/' });
 	return json(
 		{ success: true, error: '', msg: 'you have been registered successfully' },
 		{ status: 201 }

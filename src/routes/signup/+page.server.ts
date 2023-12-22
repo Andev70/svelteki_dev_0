@@ -1,14 +1,20 @@
+// imports all here
 import { redirect } from '@sveltejs/kit';
 import type { RequestEvent } from './$types';
 import { fail } from '@sveltejs/kit';
-
+import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '$env/static/private';
+/*loading data on server before entering */
 export async function load({ cookies }: any) {
 	const token = cookies.get('token');
 	if (token) {
-		throw redirect(302, '/dashboard');
+		const tokenVerify = jwt.verify(token, JWT_SECRET);
+		if (tokenVerify) {
+			throw redirect(302, '/dashboard');
+		}
 	}
 }
-
+/*requesting signup using form actions*/
 export const actions = {
 	default: async ({ fetch, request }: RequestEvent) => {
 		const data = await request.formData();

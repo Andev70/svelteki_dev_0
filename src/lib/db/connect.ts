@@ -1,10 +1,9 @@
+import { DATABASE_URL } from '$env/static/private';
 import mongoose from 'mongoose';
-
 export async function connect() {
 	try {
-		mongoose.connect(
-			'mongodb+srv://simpledev:simple1234@cluster0.k3hjvqo.mongodb.net/socialmedia?retryWrites=true&w=majority'
-		);
+		mongoose.connect(DATABASE_URL);
+
 		const connection = mongoose.connection;
 
 		connection.on('connected', () => {
