@@ -1,7 +1,7 @@
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-
+<main class=" min-h-screen flex w-screen flex-col items-center ">
   <div class="bg-gradient-to-r from-purple-400 to-indigo-500 shadow-md rounded-md p-6 w-full sm:w-96">
-      <i class="bi bi-box-fill text-teal-400"></i>1<h1 class="text-3xl font-semibold mb-6 text-center text-white">Todo App Dashboard </h1>
+    <h1 class="text-3xl font-semibold mb-6 text-center text-white">Todo App Dashboard</h1>
+    
     <div class="bg-white bg-opacity-50 rounded-md p-4 mb-4">
       <h2 class="text-xl font-semibold mb-4">Task Statistics</h2>
       <div class="flex justify-between">
@@ -65,5 +65,5 @@
       </ul>
     </div>
   </div>
-</body>
+</main>
 

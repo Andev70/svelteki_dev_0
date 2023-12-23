@@ -1,4 +1,5 @@
 <script lang="ts">
+ import "$lib/bootstrap-icons/font/bootstrap-icons.css"  
 import {SvelteQueryDevtools} from "@tanstack/svelte-query-devtools"
   import { browser } from '$app/environment'
   import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query'
