@@ -1,22 +1,36 @@
-
 <script lang="ts">
-  export let form;
-  console.log(form)
-  export let data
-  const users = data.users.users
+ export let form 
+
 </script>
-<main class="main w-screen min-h-screen flex flex-col items-center gap-y-3">
-  <p class="msg text-red-500">{form?.deleted?.msg || ""}</p>
-  {#each users as user}
 
-<h1 class="names">{user.username}</h1>
-  {/each}
-    <form method="post" action="?/deleteUsers" class="deleteusers">
+<main class=" min-h-screen w-screen px-3 flex pt-5 pb-4 flex-col items-center">
 
-    {#if data.decoded.admin}
-    <button class="delete rounded-[6.4px] px-4 py-3 bg-red-700" type="submit ">DELETEALL</button>
-    {/if}
-
-    <button class="delete rounded-[6.4px] px-4 py-3 bg-green-700" type="submit" formaction="?/logout">LOGOUT</button>
-  </form>
+  <p class="msg">{form?.todo?.msg ||""}</p>
+  <p class="msg">{form?.msg ||""}</p>
+  <div class="bg-white shadow-md rounded-md p-6 w-full h-max">
+    <h1 class="text-3xl font-semibold mb-6 text-center text-black">Todo App</h1>
+    <form method="post" action="?/createTodo" class="flex items-center mb-4">
+      <input name="todo" id="todo" type="text" placeholder="Add a new task..." class="flex-1 text-black rounded-l-md border-gray-300 border p-3 focus:outline-none">
+      <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded-r-md hover:bg-blue-600 focus:outline-none">Add</button>
+    </form>
+    <ul class="divide-y divide-gray-300">
+      <li class="flex justify-between items-center py-3">
+        <div class="flex items-center">
+          <input type="checkbox" class="mr-3">
+          <span class="flex-1 text-black">Sample Task 1</span>
+        </div>
+        <button class="text-red-500 hover:text-red-700 focus:outline-none">Delete</button>
+      </li>
+      <li class="flex justify-between items-center py-3">
+        <div class="flex items-center">
+          <input type="checkbox" class="mr-3">
+          <span class="flex-1 text-black">Sample Task 2</span>
+        </div>
+        <button class="text-red-500 hover:text-red-700 focus:outline-none">Delete</button>
+      </li>
+      <!-- Additional tasks can be dynamically added here -->
+    </ul>
+    <p class="text-gray-500 text-sm mt-4">You have X tasks pending</p>
+  </div>
 </main>
+

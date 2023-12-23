@@ -1,10 +1,11 @@
 import { json } from '@sveltejs/kit';
 import type { RequestEvent } from './$types';
 import User from '$lib/model/users';
+import { connect } from '$lib/db/connect';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { JWT_SECRET } from '$env/static/private';
-
+connect();
 export async function POST({ request, cookies }: RequestEvent) {
 	const body: any = await request.json();
 	const { email, password } = body;
